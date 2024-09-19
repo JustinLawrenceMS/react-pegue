@@ -1,19 +1,53 @@
+import { usePage } from "@inertiajs/react";
+import Cite from "citation-js";
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 
 export default function Dashboard() {
-    return (
-        <AuthenticatedLayout
-            header={<h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Dashboard</h2>}
-        >
-            <Head title="Dashboard" />
+    const { props } = usePage();
 
-            <div className="py-12">
-                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-6 text-gray-900 dark:text-gray-100">You're logged in!</div>
-                    </div>
-                </div>
+    const json = props.auth.user.jsonCitations;
+    console.dir(JSON.parse('[' + json + ']'));
+    const citations = props.auth.user.citations;
+
+    let bibs = [];
+    let output = [];
+    for (let i = 0; i < json.length; i++) {
+        output[i] = new Cite(JSON.parse(json[i]));
+        bibs[i] = output[i].format('bibliography', {
+            format: 'text',
+            template: 'apa',
+            lang: 'en-US'
+        });
+    }
+
+    return (
+        <AuthenticatedLayout>
+            <Head title="Pegue." />
+            <div className="mt-20 bg-white dark:bg-gray-900 ml-80 mr-80 flex flex-wrap rounded-2xl">
+                <a className="float-left text-9xl dark:text-white no-underline" href="/add">+</a>
+                <table className="dark:text-white">
+                    <thead>
+                    <th>
+                        Citation
+                    </th>
+                    <th>
+                        Descriptors
+                    </th>
+                    </thead>
+                    <tbody>
+                    {citations.map((citation, index) => (
+                        <tr key={citation.id}>
+                            <td className="p-11">
+                                {bibs[index]}
+                            </td>
+                            <td className="p-11">
+                                {!citation['mesh_headings'] ? null : JSON.parse(citation['mesh_headings']).join(", ")}
+                            </td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
             </div>
         </AuthenticatedLayout>
     );
