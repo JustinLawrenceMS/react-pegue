@@ -23,32 +23,32 @@ export default function Dashboard() {
 
     return (
         <AuthenticatedLayout>
-            <Head title="Pegue." />
-            <div className="mt-20 bg-white dark:bg-gray-900 ml-80 mr-80 flex flex-wrap rounded-2xl">
-                <a className="float-left text-9xl dark:text-white no-underline" href="/add">+</a>
-                <table className="dark:text-white">
-                    <thead>
-                    <th>
-                        Citation
-                    </th>
-                    <th>
-                        Descriptors
-                    </th>
-                    </thead>
-                    <tbody>
-                    {citations.map((citation, index) => (
-                        <tr key={citation.id}>
-                            <td className="p-11">
-                                {bibs[index]}
-                            </td>
-                            <td className="p-11">
-                                {!citation['mesh_headings'] ? null : JSON.parse(citation['mesh_headings']).join(", ")}
-                            </td>
-                        </tr>
-                    ))}
-                    </tbody>
-                </table>
-            </div>
+            <Head title="Pegue."/>
+                    <div className="md:mt-20 bg-white dark:bg-gray-900 md:ml-80 md:mr-80 flex flex-wrap rounded-2xl">
+                        <a className="float-left text-9xl dark:text-white no-underline" href="/add">+</a>
+                        <table className="dark:text-white">
+                            <thead>
+                            <th>
+                                Citation
+                            </th>
+                            <th>
+                                Descriptors
+                            </th>
+                            </thead>
+                            <tbody>
+                            {citations.map((citation, index) => (
+                                <tr key={citation.id}>
+                                    <td className="p-11">
+                                        {bibs[index]}
+                                    </td>
+                                    <td className="p-11">
+                                        {!citation['mesh_headings'] ? null : JSON.parse(citation['mesh_headings']).join(", ")}
+                                    </td>
+                                </tr>
+                            ))}
+                            </tbody>
+                        </table>
+                    </div>
         </AuthenticatedLayout>
-    );
+);
 }
