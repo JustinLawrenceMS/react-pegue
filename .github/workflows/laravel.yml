@@ -34,11 +34,10 @@ jobs:
       run: |
         npm i
         npm run build
-    - name: configure env
+    - name: Configure env, Migrate DB and test
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
-    - name: Migrate DB and test
       run: |
         php artisan migrate
         php artisan test
