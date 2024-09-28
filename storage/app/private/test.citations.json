@@ -1,0 +1,97 @@
+[
+    {
+        "title": "Hamburger prices and spatial econometrics",
+        "author": [
+            {
+                "family": "Kalnins",
+                "given": "Arturs"
+            }
+        ],
+        "container-title": "Journal of Economics & Management Strategy",
+        "volume": "12",
+        "issue": "4",
+        "page": "591-616",
+        "year": 2003,
+        "mesh-headings": []
+    },
+    {
+        "author": [
+            {
+                "family": "Rauch",
+                "given": "J."
+            }
+        ],
+        "title": "The happiness curve: Why life gets better after 50",
+        "publisher": "Thomas Dunne Books",
+        "issued": {
+            "date-parts": [
+                [
+                    2018,
+                    5,
+                    1
+                ]
+            ]
+        },
+        "type": "book",
+        "mesh-headings": []
+    },
+    {
+        "title": "Acetaminophen Use During Pregnancy and Children\u2019s Risk of Autism, ADHD, and Intellectual Disability",
+        "author": [
+            {
+                "family": "Ahlqvist",
+                "given": "Viktor H."
+            },
+            {
+                "family": "Sj\u00f6qvist",
+                "given": "Hugo"
+            },
+            {
+                "family": "Dalman",
+                "given": "Christina"
+            },
+            {
+                "family": "Karlsson",
+                "given": "H\u00e5kan"
+            },
+            {
+                "family": "Stephansson",
+                "given": "Olof"
+            },
+            {
+                "family": "Johansson",
+                "given": "Stefan"
+            },
+            {
+                "family": "Magnusson",
+                "given": "Cecilia"
+            },
+            {
+                "family": "Gardner",
+                "given": "Renee M."
+            },
+            {
+                "family": "Lee",
+                "given": "Brian K."
+            }
+        ],
+        "container-title": "Jama",
+        "volume": "331",
+        "issue": "14",
+        "page": "1205-1214",
+        "issued": {
+            "date-parts": [
+                [
+                    2024
+                ]
+            ]
+        },
+        "mesh-headings": [
+            "Acetaminophen",
+            "Prenatal Exposure Delayed Effects",
+            "Autism Spectrum Disorder",
+            "Attention Deficit Disorder with Hyperactivity",
+            "Intellectual Disability"
+        ]
+    }
+]
