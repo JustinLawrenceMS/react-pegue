@@ -17,10 +17,16 @@ class PegueController extends Controller
     {
         Gate::authorize('create', (new Citation()));
 
-        $assistant = new Assistant();
-        $assistant->systemMessage(null);
-        $metadata = $assistant->send($request->input("citation"));
-        \Log::info($metadata);
+        $test = $request->input('test');
+
+        if (is_null($test)) {
+            $assistant = new Assistant();
+            $assistant->systemMessage(null);
+            $metadata = $assistant->send($request->input("citation"));
+            \Log::info($metadata);
+        } else {
+            $metadata = $test;
+        }
 
         $metadata = json_decode($metadata, true);
         \Log::info('this is $metadata line 23');
