@@ -12,26 +12,13 @@ use Tests\TestCase;
 class PegueControllerTest extends TestCase
 {
     use RefreshDatabase;
-    /**
-     * A basic feature test example.
-     */
-    public function test_citation_endpoint_is_reachable(): void
-    {
-        $this->markTestSkipped('not doing api key in workflow');
-        $user = User::factory()->create();
-
-        $response = $this->actingAs($user)
-            ->post('api/v1/citation', ['citation' => 'Ivanovic, J., Baltic, M. Z., Janjic, J., Markovic, R., Baltic, T., Boskovic, M., ... & Jovanovic, D. (2016). Health aspects of dry-cured ham. Scientific journal" Meat Technology", 57(1), 43-50.']);
-        $response->assertStatus(200);
-
-        dump(Citation::get());
-    }
 
     public function test_citation_endpoint_is_not_reachable_by_logged_out_users(): void
     {
         //  $this->markTestSkipped('not doing api key in workflow');
         $response = $this->post('api/v1/citation', ['citation' => 'Ivanovic, J., Baltic, M. Z., Janjic, J., Markovic, R., Baltic, T., Boskovic, M., ... & Jovanovic, D. (2016). Health aspects of dry-cured ham. Scientific journal" Meat Technology", 57(1), 43-50.']);
         $response->assertStatus(302);
+        $this->assertEquals("Unauthenticated.", $response->exception->getMessage());
     }
 
     public function test_api_post_request_resolves(): void
