@@ -60,6 +60,8 @@ class PegueControllerTest extends TestCase
                 ->post('api/v1/citation', ['test' => $citation]);
         }
 
+        // because of casting, we need to pull out the array and compare
+        // instead doing an actual database check with assertDatabaseHas
         $testCitations = Citation::all();
 
         for ($i = 0; $i < count($testCitations); $i++) {
